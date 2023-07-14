@@ -6,23 +6,31 @@
     <description>Recent content in Annoucement on DATA 606 - Statistics &amp; Probability - Fall 2023</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Jan 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/annoucement/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Intro to the Course</title>
-      <link>/blog/00-intro_to_course/</link>
-      <pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
+      <title>Welcome to DATA606!</title>
+      <link>/blog/00-welcome-to-data606/</link>
+      <pubDate>Tue, 17 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>/blog/00-intro_to_course/</guid>
+      <guid>/blog/00-welcome-to-data606/</guid>
       <description>
 
 
-&lt;p&gt;&lt;a href=&#34;/slides/00-Intro_to_Course.html#1&#34;&gt;Click here&lt;/a&gt; to open the slides (&lt;a href=&#34;/slides/00-Intro_to_Course.pdf&#34;&gt;PDF&lt;/a&gt;).&lt;/p&gt;
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/a_EtNL6rGl4&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
-&lt;/iframe&gt;
+&lt;p&gt;Welcome to DATA606! Your instructors will be &lt;a href=&#34;https://bryer.org&#34;&gt;Dr. Jason Bryer&lt;/a&gt; and Dr. Angela Lui. Couple of important notes as you get started:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The course syllabus located here: &lt;a href=&#34;https://spring2023.data606.net/course-overview&#34; class=&#34;uri&#34;&gt;https://spring2023.data606.net/course-overview&lt;/a&gt;. We will post all course materials there. Blackboard will be used primarily for submitting assignments. &lt;strong&gt;Please read the syllabus carefully!&lt;/strong&gt; Send us any questions you may still have about the course.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Complete this &lt;a href=&#34;https://forms.gle/81g9D4xnFwkeXyhu5&#34;&gt;Google Form&lt;/a&gt; as soon as possible. We will use some of the data (in aggregate) in the meetup.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://join.slack.com/t/cuny-qt08884/shared_invite/zt-1nkr1zeep-tWuVTWt2esX4wGLoKPYSyQ&#34;&gt;Join the Slack channel by clicking here&lt;/a&gt; (or use your &lt;span class=&#34;citation&#34;&gt;@sps.cuny.edu&lt;/span&gt; email address). This will be our primary mode of communication. For private communications, you can either send private Slack messages or email us at &lt;a href=&#34;mailto:jason.bryer@cuny.edu&#34;&gt;jason.bryer@cuny.edu&lt;/a&gt; and &lt;a href=&#34;mailto:angela.lui@cuny.edu&#34;&gt;angela.lui@cuny.edu&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Complete the self-regulated learning assessment in DAACS. Visit &lt;a href=&#34;/assignments/daacs/&#34;&gt;/assignments/daacs/&lt;/a&gt; for more information.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Once you go through the syllabus, try starting Lab 1 as soon as you can. This will require you to install R and RStudio and will help get you get acquainted with R. See the &lt;a href=&#34;/course-overview/software/&#34;&gt;software page&lt;/a&gt; for more information about the software we will use for this course.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The best way to reach us is on Slack. If you would prefer to talk on the phone or setup a Zoom session, it is best to suggest some times by email first.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Our Meetups will be on Wednesdays from 8:00pm to 9:00pm. &lt;strong&gt;We expect everyone to attend or watch the Meetups.&lt;/strong&gt; Important information will be shared during the meetups that will not be available in any other format.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We am looking forward to getting to know everyone and a fantastic semester! Good luck!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
