@@ -11,6 +11,7 @@ editor_options:
 ```{r schedule-setup, echo=FALSE, warning=FALSE, message=FALSE}
 # Using the FullCalendar JavaScript library: https://fullcalendar.io
 
+source('../../../config.R')
 source('../../../R/createICS.R')
 library(readxl)
 library(lubridate)

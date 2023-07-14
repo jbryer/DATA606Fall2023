@@ -20,11 +20,108 @@
       <description>
 
 
+&lt;pre&gt;&lt;code&gt;## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&amp;lt;http://conflicted.r-lib.org/&amp;gt;) to force all conflicts to become errors
+## Loading required package: xtable
+## 
+## 
+## Attaching package: &amp;#39;likert&amp;#39;
+## 
+## 
+## The following object is masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     recode
+## 
+## 
+## Loading required package: NLP
+## 
+## 
+## Attaching package: &amp;#39;NLP&amp;#39;
+## 
+## 
+## The following object is masked from &amp;#39;package:ggplot2&amp;#39;:
+## 
+##     annotate
+## 
+## 
+## Loading required package: RColorBrewer
+## 
+## Loading required package: shiny
+## 
+## Loading required package: openintro
+## 
+## Loading required package: airports
+## 
+## Loading required package: cherryblossom
+## 
+## Loading required package: usdata
+## 
+## Loading required package: markdown&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Welcome to CUNY DATA606 Statistics and Probability for Data Analytics 
+## This package is designed to support this course. The text book used 
+## is OpenIntro Statistics, 4th Edition. You can read this by typing 
+## vignette(&amp;#39;os4&amp;#39;) or visit www.OpenIntro.org. 
+##  
+## The getLabs() function will return a list of the labs available. 
+##  
+## The demo(package=&amp;#39;DATA606&amp;#39;) will list the demos that are available.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;DATA606&amp;#39;
+## 
+## The following objects are masked from &amp;#39;package:openintro&amp;#39;:
+## 
+##     calc_streak, present, qqnormsim
+## 
+## The following object is masked from &amp;#39;package:VisualStats&amp;#39;:
+## 
+##     hand_washing
+## 
+## The following object is masked from &amp;#39;package:utils&amp;#39;:
+## 
+##     demo
+## 
+## 
+## Attaching package: &amp;#39;reshape2&amp;#39;
+## 
+## The following object is masked from &amp;#39;package:openintro&amp;#39;:
+## 
+##     tips
+## 
+## The following object is masked from &amp;#39;package:tidyr&amp;#39;:
+## 
+##     smiths
+## 
+## 
+## Attaching package: &amp;#39;psych&amp;#39;
+## 
+## The following objects are masked from &amp;#39;package:VisualStats&amp;#39;:
+## 
+##     logistic, logit
+## 
+## The following objects are masked from &amp;#39;package:ggplot2&amp;#39;:
+## 
+##     %+%, alpha
+## 
+## 
+## Attaching package: &amp;#39;cowplot&amp;#39;
+## 
+## The following object is masked from &amp;#39;package:lubridate&amp;#39;:
+## 
+##     stamp&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Welcome to DATA606! Your instructors will be &lt;a href=&#34;https://bryer.org&#34;&gt;Dr. Jason Bryer&lt;/a&gt; and Dr. Angela Lui. Couple of important notes as you get started:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;The course syllabus located here: &lt;a href=&#34;https://spring2023.data606.net/course-overview&#34; class=&#34;uri&#34;&gt;https://spring2023.data606.net/course-overview&lt;/a&gt;. We will post all course materials there. Blackboard will be used primarily for submitting assignments. &lt;strong&gt;Please read the syllabus carefully!&lt;/strong&gt; Send us any questions you may still have about the course.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Complete this &lt;a href=&#34;https://forms.gle/EZc68oLgRkEaeJGp6&#34;&gt;Google Form&lt;/a&gt; as soon as possible. We will use some of the data (in aggregate) in the meetup.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://join.slack.com/t/cuny-qt08884/shared_invite/zt-1nkr1zeep-tWuVTWt2esX4wGLoKPYSyQ&#34;&gt;Join the Slack channel by clicking here&lt;/a&gt; (or use your &lt;span class=&#34;citation&#34;&gt;@sps.cuny.edu&lt;/span&gt; email address). This will be our primary mode of communication. For private communications, you can either send private Slack messages or email us at &lt;a href=&#34;mailto:jason.bryer@cuny.edu&#34;&gt;jason.bryer@cuny.edu&lt;/a&gt; and &lt;a href=&#34;mailto:angela.lui@cuny.edu&#34;&gt;angela.lui@cuny.edu&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The course syllabus located here: &lt;a href=&#34;https://fall2023.data606.net/course-overview&#34; class=&#34;uri&#34;&gt;https://fall2023.data606.net/course-overview&lt;/a&gt;. We will post all course materials there. Blackboard will be used primarily for submitting assignments. &lt;strong&gt;Please read the syllabus carefully!&lt;/strong&gt; Send us any questions you may still have about the course.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Complete this &lt;a href=&#34;https://forms.gle/6YDZEkq3uhKanJPs9&#34;&gt;Google Form&lt;/a&gt; as soon as possible. We will use some of the data (in aggregate) in the meetup.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;&#34;&gt;Join the Slack channel by clicking here&lt;/a&gt; (or use your &lt;span class=&#34;citation&#34;&gt;@sps.cuny.edu&lt;/span&gt; email address). This will be our primary mode of communication. For private communications, you can either send private Slack messages or email us at &lt;a href=&#34;mailto:jason.bryer@cuny.edu&#34;&gt;jason.bryer@cuny.edu&lt;/a&gt; and &lt;a href=&#34;mailto:angela.lui@cuny.edu&#34;&gt;angela.lui@cuny.edu&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Complete the self-regulated learning assessment in DAACS. Visit &lt;a href=&#34;/assignments/daacs/&#34;&gt;/assignments/daacs/&lt;/a&gt; for more information.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Once you go through the syllabus, try starting Lab 1 as soon as you can. This will require you to install R and RStudio and will help get you get acquainted with R. See the &lt;a href=&#34;/course-overview/software/&#34;&gt;software page&lt;/a&gt; for more information about the software we will use for this course.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The best way to reach us is on Slack. If you would prefer to talk on the phone or setup a Zoom session, it is best to suggest some times by email first.&lt;/p&gt;&lt;/li&gt;
