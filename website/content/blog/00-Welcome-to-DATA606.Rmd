@@ -11,7 +11,7 @@ Welcome to DATA606! Your instructors will be [Dr. Jason Bryer](https://bryer.org
 
 * The course syllabus located here: https://spring2023.data606.net/course-overview. We will post all course materials there. Blackboard will be used primarily for submitting assignments. **Please read the syllabus carefully!** Send us any questions you may still have about the course.
 
-* Complete this [Google Form](https://forms.gle/81g9D4xnFwkeXyhu5) as soon as possible. We will use some of the data (in aggregate) in the meetup.
+* Complete this [Google Form](https://forms.gle/EZc68oLgRkEaeJGp6) as soon as possible. We will use some of the data (in aggregate) in the meetup.
 
 * [Join the Slack channel by clicking here](https://join.slack.com/t/cuny-qt08884/shared_invite/zt-1nkr1zeep-tWuVTWt2esX4wGLoKPYSyQ) (or use your @sps.cuny.edu email address). This will be our primary mode of communication. For private communications, you can either send private Slack messages or email us at [jason.bryer@cuny.edu](mailto:jason.bryer@cuny.edu) and [angela.lui@cuny.edu](mailto:angela.lui@cuny.edu).
 
