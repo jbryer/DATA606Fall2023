@@ -6,7 +6,7 @@
     <description>Recent content in Home on DATA 606 - Statistics &amp; Probability - Fall 2023</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jan 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -226,6 +226,21 @@ LaTeX LaTeX is a typesetting language for preparing documents.</description>
       <guid>/course-overview/materials/</guid>
       <description> These are supplemental materials. Click to download.
  Chapter 28_Anova.pdf Cheatsheets_2019.pdf Classical_Machine_Learning.JPG ElementalGraphics4ANOVA.RP+JH.pdf ggplot_aesthetics_cheatsheet.png Kruschke-Liddell2018_Article_BayesianDataAnalysisForNewcome.pdf R_Syntax_Comparison.jpeg Riezler2021_EmpiricalMethods-draft.pdf stats_handout.pdf Textbooks  lsr-0.6.pdf os4.pdf ProbStatBook.pdf Supplemental  OpenIntro_extra_interaction_effects.pdf OpenIntro_extra_nonlinear_relationships.pdf OpenIntro_handout.pdf os2_extra_inference_guide.pdf os2_prob_tables.pdf os4_tablet.pdf   Thirteen Ways to Look at the Correlation Coefficient.pdf What_Is_Data_Science.pdf WhatisDataScienceFinalMay162018.pdf When to use what test.pdf  </description>
+    </item>
+    
+    <item>
+      <title>Intro to the Course</title>
+      <link>/blog/00-intro_to_course/</link>
+      <pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/00-intro_to_course/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;a href=&#34;/slides/00-Intro_to_Course.html#1&#34;&gt;Click here&lt;/a&gt; to open the slides (&lt;a href=&#34;/slides/00-Intro_to_Course.pdf&#34;&gt;PDF&lt;/a&gt;).&lt;/p&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/a_EtNL6rGl4&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+</description>
     </item>
     
   </channel>
