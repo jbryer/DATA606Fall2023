@@ -3,8 +3,7 @@ baseURL = "/"
 title = "DATA 606 - Statistics & Probability - Fall 2023"
 
 # This is the default directory for Github Pages
-#publishDir = "../docs/"
-publishDir = "docs/"
+publishDir = "../docs/"
 
 
 ignoreErrors = ["error-remote-getjson"]
