@@ -102,7 +102,7 @@ for(i in 1:nrow(meetups)) {
 }
 
 # Build the site with blogdown
-library(blogdown)
+# library(blogdown)
 wd <- setwd('website')
 options(blogdown.hugo.version = hugo_version)
 blogdown::build_site(build_rmd = TRUE)
