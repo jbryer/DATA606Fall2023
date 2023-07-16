@@ -7,8 +7,9 @@ categories: ["R"]
 tags: ["Annoucement"]
 ---
 
-```{r, echo=FALSE, results='hide'}
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE, error=FALSE}
 source('../../../config.R')
+
 ```
 
 Welcome to DATA606! Your instructors will be [Dr. Jason Bryer](https://bryer.org) and Dr. Angela Lui. Couple of important notes as you get started:
