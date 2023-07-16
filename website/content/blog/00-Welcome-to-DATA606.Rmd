@@ -7,7 +7,7 @@ categories: ["R"]
 tags: ["Annoucement"]
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, results='hide'}
 source('../../../config.R')
 ```
 

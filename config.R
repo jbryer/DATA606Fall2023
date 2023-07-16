@@ -5,7 +5,7 @@ one_minute_paper <- 'https://forms.gle/ngYXfC6jwY3TV6FXA'
 one_minute_paper_results <- "https://docs.google.com/spreadsheets/d/1FFs2vR7GUR4XwqxaOENp6w3_5N8kMWzuGbZR_kLYnUg/edit?resourcekey#gid=1125424984"
 formative_assessment <- 'https://forms.gle/6YDZEkq3uhKanJPs9'
 formative_assessmnet_results <- 'https://docs.google.com/spreadsheets/d/189ZoZgrK8iqsApRv67IdFAj866yiNblnbtGkwVIXVow/edit?resourcekey#gid=1436273879'
-slack_invite_link <- ''
+slack_invite_link <- 'https://join.slack.com/t/cuny-3221823/shared_invite/zt-1z3go21yf-BMopzsMNAOIbPzXNqBg1kQ'
 
 # remotes::install_github("gadenbuie/countdown")
 # devtools::install_github("ropenscilabs/icon")
