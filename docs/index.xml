@@ -6,7 +6,7 @@
     <description>Recent content in Home on DATA 606 - Statistics &amp; Probability - Fall 2023</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Aug 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -66,7 +66,7 @@ I am currently an Assistant Professor in Data Science and Information Systems at
       <guid>/course-overview/schedule/</guid>
       <description>Note: Schedule is subject to change. Last updated July 14, 2023 11:09AM.
 CUNY SPS Academic Calendar
- document.addEventListener(&#39;DOMContentLoaded&#39;, function() { var calendarEl = document.getElementById(&#39;calendar&#39;); var calendar = new FullCalendar.Calendar(calendarEl, { initialDate: &#39;2023-08-01&#39;, initialView: &#39;dayGridMonth&#39;, headerToolbar: { left: &#39;prev,next today&#39;, center: &#39;title&#39;, right: &#39;dayGridMonth,timeGridWeek,timeGridDay,listWeek&#39; }, height: &#39;auto&#39;, navLinks: true, // can click day/week names to navigate views editable: true, selectable: true, selectMirror: true, nowIndicator: true, events: [ { title: &#34;Chapter 1 - Intro to Data, R, and RStudio&#34;</description>
+ document.addEventListener(&#39;DOMContentLoaded&#39;, function() { var calendarEl = document.getElementById(&#39;calendar&#39;); var calendar = new FullCalendar.Calendar(calendarEl, { initialDate: &#39;2023-08-11&#39;, initialView: &#39;dayGridMonth&#39;, headerToolbar: { left: &#39;prev,next today&#39;, center: &#39;title&#39;, right: &#39;dayGridMonth,timeGridWeek,timeGridDay,listWeek&#39; }, height: &#39;auto&#39;, navLinks: true, // can click day/week names to navigate views editable: true, selectable: true, selectMirror: true, nowIndicator: true, events: [ { title: &#34;Chapter 1 - Intro to Data, R, and RStudio&#34;</description>
     </item>
     
     <item>
@@ -231,7 +231,7 @@ LaTeX LaTeX is a typesetting language for preparing documents.</description>
     <item>
       <title>Welcome to DATA606!</title>
       <link>/blog/00-welcome-to-data606/</link>
-      <pubDate>Tue, 17 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>/blog/00-welcome-to-data606/</guid>
       <description>
