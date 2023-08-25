@@ -29,7 +29,7 @@ for(i in tocopy) {
 		cat(paste0('Ignoring ', i, '...\n'))
 		success <- TRUE
 	} else if(!file_test("-f", from)) { # Directory
-		dir.create(to, recursive = TRUE)
+		dir.create(to, recursive = TRUE, showWarnings = FALSE)
 		success <- file.copy(from, 'docs/slides/', recursive = TRUE, overwrite = TRUE)
 	} else { # File
 		success <- file.copy(from, to, overwrite = TRUE)
