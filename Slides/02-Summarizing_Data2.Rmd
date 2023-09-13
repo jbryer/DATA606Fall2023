@@ -2,7 +2,7 @@
 title: "Summarizing Data Part 2"
 subtitle: "DATA 606 - Statistics & Probability for Data Analytics"
 author: Jason Bryer, Ph.D. and Angela Lui, Ph.D.
-date: "February 15, 2023"
+date: "September 13, 2023"
 output:
   xaringan::moon_reader:
     css: ["assets/mtheme_max.css", "assets/fonts_mtheme_max.css"]
@@ -27,7 +27,7 @@ editor_options:
 # Cartoons from https://github.com/allisonhorst/stats-illustrations
 # dplyr based upon https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
-source('config.R')
+source('../config.R')
 data('legosets', package = 'brickset')
 
 ```
@@ -38,6 +38,12 @@ class: center, middle, inverse, title-slide
 ## `r metadata$subtitle`
 ### `r metadata$author`
 ### `r metadata$date`
+
+
+---
+# Announcements
+
+Due to scheduling conflict, next week's meetup will be on Thursday, September 19th, at 7:00pm.
 
 ---
 # One Minute Paper Results
