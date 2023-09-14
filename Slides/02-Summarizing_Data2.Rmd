@@ -43,7 +43,7 @@ class: center, middle, inverse, title-slide
 ---
 # Announcements
 
-Due to scheduling conflict, next week's meetup will be on Thursday, September 19th, at 7:00pm.
+Due to scheduling conflict, next week's meetup will be on Tuesday, September 19th, at 7:00pm.
 
 ---
 # One Minute Paper Results

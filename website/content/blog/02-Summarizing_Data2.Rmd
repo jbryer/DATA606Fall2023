@@ -1,0 +1,87 @@
+---
+title: "Summarizing Data Part 2"
+author: "Jason Bryer and Angela Lui"
+date: 2023-09-13
+draft: false
+categories: ["Meetups"]
+tags: ["Annoucement"]
+---
+
+
+[Click here](/slides/02-Summarizing_Data2.html#1) to open the slides ([PDF](/slides/02-Summarizing_Data2.pdf)).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/duMwW2SbbWg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<!--more-->
+
+[Click here](/slides/02-Summarizing_Data2.html#1) to open the slides ([PDF](/slides/02-Summarizing_Data2.pdf)).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/duMwW2SbbWg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+library(ggplot2)
+library(brickset) # install.packages('brickset')
+suppressPackageStartupMessages(library(dplyr))
+data(legosets)
+
+# dplry::filter()
+# stats::filter()
+
+ggplot(legosets, aes(x=pieces, y=US_retailPrice, color=availability)) + 
+  geom_point()
+
+ggplot(legosets, aes(x=pieces, y=US_retailPrice, color=availability)) + 
+  geom_point(alpha = 0.3) +
+  theme_minimal()
+
+ggplot(legosets, aes(x=pieces, y=US_retailPrice, color=availability)) + 
+  geom_jitter()
+
+ggplot(legosets, aes(x = availability, y = US_retailPrice, color = availability)) + 
+  geom_point() +
+  geom_boxplot(alpha = 0.3) +
+  scale_y_log10() +
+  theme(legend.position = 'none')
+
+ggplot(legosets, aes(x = availability, y = US_retailPrice, color = availability)) + 
+  geom_jitter() +
+  geom_boxplot(alpha = 0.3) +
+  scale_y_log10() +
+  theme(legend.position = 'none')
+
+legosets2 <- legosets[complete.cases(legosets),]
+ggplot(legosets2, aes(x = pieces, y = US_retailPrice, color = availability)) + 
+  geom_density2d() +
+  theme(legend.position = 'none')
+
+my_formula <- y ~ m * x + b
+class(my_formula)
+all.vars(my_formula)
+
+library(psych)
+tab <- describeBy(legosets$US_retailPrice,
+                  group = legosets$availability,
+                  mat = TRUE)[,c('group1', 'mean')]
+tab
+names(tab) <- c('availability', 'US_retailPrice')
+
+ggplot(legosets, aes(x=availability, y=US_retailPrice)) + 
+  geom_boxplot() +
+  geom_point(data = tab, color = 'blue') +
+  scale_y_log10()
+
+ggplot(legosets, aes(x = US_retailPrice)) + geom_histogram()
+ggplot(legosets, aes(x = US_retailPrice)) + geom_histogram(bins = 50)
+ggplot(legosets, aes(x = US_retailPrice)) + geom_histogram(binwidth = 25)
+
+ggplot(legosets, aes(x = US_retailPrice, color = availability)) + geom_density()
+ggplot(legosets, aes(x = US_retailPrice, color = availability)) + geom_density() +
+  scale_x_log10()
+ggplot(legosets, aes(x = US_retailPrice, color = availability)) + 
+  geom_density() +
+  scale_x_log10() +
+  facet_wrap(~ availability) +
+  theme(legend.position = 'none')
+
+ggplot(legosets, aes(x = pieces)) +
+  geom_histogram(fill = 'blue')
+

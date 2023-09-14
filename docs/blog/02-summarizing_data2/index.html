@@ -3,10 +3,10 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Categories - DATA 606 - Statistics &amp; Probability - Fall 2023</title>
+<title>Summarizing Data Part 2 - DATA 606 - Statistics &amp; Probability - Fall 2023</title>
 <meta name="generator" content="Hugo 0.60.0" />
 <link href="//index.xml" rel="alternate" type="application/rss+xml">
-<link rel="canonical" href="/categories/">
+<link rel="canonical" href="/blog/02-summarizing_data2/">
 <link rel="stylesheet" href="/css/theme.min.css">
 <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="/css/chroma.min.css">
@@ -16,19 +16,46 @@
 <script src="/js/bundle.js"></script><style>
 :root {--custom-background-color: #005DAC;}
 </style>
-<meta property="og:title" content="Categories" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/categories/" />
+<meta property="og:title" content="Summarizing Data Part 2" />
+<meta property="og:description" content="
+
+
+Click here to open the slides (PDF).
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/02-summarizing_data2/" />
 <meta property="og:image" content="/images/og-image.png"/>
-<meta property="og:updated_time" content="2023-09-13T00:00:00+00:00" /><meta property="og:site_name" content="DATA 606" />
+<meta property="article:published_time" content="2023-09-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-13T00:00:00+00:00" /><meta property="og:site_name" content="DATA 606" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/images/og-image.png"/>
 
-<meta name="twitter:title" content="Categories"/>
-<meta name="twitter:description" content=""/>
-<meta itemprop="name" content="Categories">
-<meta itemprop="description" content=""><link href='/fullcalendar-lib/main.css' rel='stylesheet' />
+<meta name="twitter:title" content="Summarizing Data Part 2"/>
+<meta name="twitter:description" content="
+
+
+Click here to open the slides (PDF).
+
+
+"/>
+<meta itemprop="name" content="Summarizing Data Part 2">
+<meta itemprop="description" content="
+
+
+Click here to open the slides (PDF).
+
+
+">
+<meta itemprop="datePublished" content="2023-09-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2023-09-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="209">
+<meta itemprop="image" content="/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="Annoucement," /><link href='/fullcalendar-lib/main.css' rel='stylesheet' />
 <script src='/fullcalendar-lib/main.js'></script>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -61,12 +88,66 @@
 </nav>
 </div>
 <div class="content-container">
-<main><h1>Categories</h1><div class="edit-meta">
-Last updated on Wed Sep 13, 2023
-
-
-<br></div><nav class="pagination">
-</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+<main><h1>Summarizing Data Part 2</h1><p><a href="/slides/02-Summarizing_Data2.html#1">Click here</a> to open the slides (<a href="/slides/02-Summarizing_Data2.pdf">PDF</a>).</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/duMwW2SbbWg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>library(ggplot2)
+library(brickset) # install.packages(‘brickset’)
+suppressPackageStartupMessages(library(dplyr))
+data(legosets)</p>
+<div id="dplryfilter" class="section level1">
+<h1>dplry::filter()</h1>
+</div>
+<div id="statsfilter" class="section level1">
+<h1>stats::filter()</h1>
+<p>ggplot(legosets, aes(x=pieces, y=US_retailPrice, color=availability)) +
+geom_point()</p>
+<p>ggplot(legosets, aes(x=pieces, y=US_retailPrice, color=availability)) +
+geom_point(alpha = 0.3) +
+theme_minimal()</p>
+<p>ggplot(legosets, aes(x=pieces, y=US_retailPrice, color=availability)) +
+geom_jitter()</p>
+<p>ggplot(legosets, aes(x = availability, y = US_retailPrice, color = availability)) +
+geom_point() +
+geom_boxplot(alpha = 0.3) +
+scale_y_log10() +
+theme(legend.position = ‘none’)</p>
+<p>ggplot(legosets, aes(x = availability, y = US_retailPrice, color = availability)) +
+geom_jitter() +
+geom_boxplot(alpha = 0.3) +
+scale_y_log10() +
+theme(legend.position = ‘none’)</p>
+<p>legosets2 &lt;- legosets[complete.cases(legosets),]
+ggplot(legosets2, aes(x = pieces, y = US_retailPrice, color = availability)) +
+geom_density2d() +
+theme(legend.position = ‘none’)</p>
+<p>my_formula &lt;- y ~ m * x + b
+class(my_formula)
+all.vars(my_formula)</p>
+<p>library(psych)
+tab &lt;- describeBy(legosets<span class="math inline">\(US_retailPrice,  group = legosets\)</span>availability,
+mat = TRUE)[,c(‘group1’, ‘mean’)]
+tab
+names(tab) &lt;- c(‘availability’, ‘US_retailPrice’)</p>
+<p>ggplot(legosets, aes(x=availability, y=US_retailPrice)) +
+geom_boxplot() +
+geom_point(data = tab, color = ‘blue’) +
+scale_y_log10()</p>
+<p>ggplot(legosets, aes(x = US_retailPrice)) + geom_histogram()
+ggplot(legosets, aes(x = US_retailPrice)) + geom_histogram(bins = 50)
+ggplot(legosets, aes(x = US_retailPrice)) + geom_histogram(binwidth = 25)</p>
+<p>ggplot(legosets, aes(x = US_retailPrice, color = availability)) + geom_density()
+ggplot(legosets, aes(x = US_retailPrice, color = availability)) + geom_density() +
+scale_x_log10()
+ggplot(legosets, aes(x = US_retailPrice, color = availability)) +
+geom_density() +
+scale_x_log10() +
+facet_wrap(~ availability) +
+theme(legend.position = ‘none’)</p>
+<p>ggplot(legosets, aes(x = pieces)) +
+geom_histogram(fill = ‘blue’)</p>
+</div>
+<footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main>
 <div class="sidebar">
