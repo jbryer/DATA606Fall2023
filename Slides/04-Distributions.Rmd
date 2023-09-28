@@ -2,7 +2,7 @@
 title: "Distributions"
 subtitle: "DATA 606 - Statistics & Probability for Data Analytics"
 author: Jason Bryer, Ph.D. and Angela Lui, Ph.D.
-date: "March 1, 2023"
+date: "September 27, 2023"
 output:
   xaringan::moon_reader:
     css: ["assets/mtheme_max.css", "assets/fonts_mtheme_max.css"]
@@ -27,7 +27,7 @@ editor_options:
 # Cartoons from https://github.com/allisonhorst/stats-illustrations
 # dplyr based upon https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
-source('config.R')
+source('../config.R')
 ```
 
 class: center, middle, inverse, title-slide
@@ -522,7 +522,7 @@ barplot(dbinom(0:n, n, p), names.arg=0:n)
 dbinom(1, 4, p)
 ```
 
-
+https://shiny.rit.albany.edu/stat/binomial/
 
 ---
 class: left, font140
