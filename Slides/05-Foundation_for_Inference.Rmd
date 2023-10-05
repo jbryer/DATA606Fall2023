@@ -2,7 +2,7 @@
 title: "Foundation for Inference"
 subtitle: "DATA 606 - Statistics & Probability for Data Analytics"
 author: Jason Bryer, Ph.D. and Angela Lui, Ph.D.
-date: "March 8, 2023"
+date: "October 4, 2023"
 output:
   xaringan::moon_reader:
     css: ["assets/mtheme_max.css", "assets/fonts_mtheme_max.css"]
@@ -27,7 +27,7 @@ editor_options:
 # Cartoons from https://github.com/allisonhorst/stats-illustrations
 # dplyr based upon https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
-source('config.R')
+source('../config.R')
 ```
 
 class: center, middle, inverse, title-slide
@@ -40,9 +40,9 @@ class: center, middle, inverse, title-slide
 ---
 # Midterm
 
-* Available on March 15th.
+* Available on October 11th.
 
-* Due March 19th (by midnight)
+* Due October 15th (by midnight)
 
 * Covers chapters 1 through 5.
 
