@@ -2,7 +2,7 @@
 title: "Inference for Numerical Data"
 subtitle: "DATA 606 - Statistics & Probability for Data Analytics"
 author: Jason Bryer, Ph.D. and Angela Lui, Ph.D.
-date: "March 22, 2023"
+date: "October 18, 2023"
 output:
   xaringan::moon_reader:
     css: ["assets/mtheme_max.css", "assets/fonts_mtheme_max.css"]
@@ -27,7 +27,7 @@ editor_options:
 # Cartoons from https://github.com/allisonhorst/stats-illustrations
 # dplyr based upon https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
-source('config.R')
+source('../config.R')
 options(width = 120)
 ```
 
@@ -47,7 +47,8 @@ class: center, middle, inverse, title-slide
 .pull-left[
 ```{r, echo = FALSE, fig.height=8}
 midterm <- rbind(read.csv('../private/Midterm/DATA606 Midterm1.csv'),
-				 read.csv('../private/Midterm/DATA606 Midterm2.csv'))
+				 read.csv('../private/Midterm/DATA606 Midterm2.csv'),
+				 read.csv('../private/Midterm/DATA606 Midterm3.csv'))
 
 scores <- midterm %>% select(paste0('Auto.Score.', 1:20)) %>%
 	mutate(Total = rowSums(across(everything())))
@@ -104,7 +105,7 @@ ompWordCloud(omp$`What important question remains unanswered for you?`)
 
 # Data Project Proposal
 
-Due April 2<sup>nd</sup>ish Select a dataset that interests you. For the proposal, you need to answer the questions below.
+Due October 29<sup>th</sup>ish Select a dataset that interests you. For the proposal, you need to answer the questions below.
 
 .font80[
 * Research question
@@ -118,7 +119,7 @@ Due April 2<sup>nd</sup>ish Select a dataset that interests you. For the proposa
 * Relevant summary statistics
 ]
 
-More information including template and suggested datasets located here: https://spring2023.data606.net/assignments/project/
+More information including template and suggested datasets located here: https://fall2023.data606.net/assignments/project/
 
 
 
@@ -237,6 +238,7 @@ Note that the confidence interval spans zero!
 # Visualizing Dependent Sample Tests
 
 ```{r, results='hide', fig.height = 6.5}
+# remotes::install_github('briandk/granovaGG')
 library(granovaGG)
 granovagg.ds(as.data.frame(hsb2[,c('read', 'write')]))
 ```
@@ -323,7 +325,7 @@ Calculate the 95% confidence interval:
 
 $$(\bar{x}_{M} - \bar{x}_{F}) \pm 1.96 SE_{ (\bar { x } _{ M }-\bar { x } _{ F }) }$$
 $$(626.9 - 597.7) \pm 1.96 \times 1.55$$
-$$29.2 \pm 3.038 = (2s6.162, 32.238)$$
+$$29.2 \pm 3.038 = (26.162, 32.238)$$
 
 ]
 
@@ -694,7 +696,7 @@ anova_vis(Y = hand_washing$Bacterial_Counts,
 | ------------------------|:-----------------------------------------------------------:|:-----:|:------------------------------------:|
 | Between Group (Treatment) | $\sum^{}_{k} n_{k}(\bar{x}_{k} -\bar{x} )^{2}$              | k - 1 | $\frac{SS_{between}}{df_{between}}$ 
 | Within Group (Error)    | $\sum^{}_{k} \sum^{}_{i} (\bar{x}_{ik} -\bar{x}_{k} )^{2}$  | n - k | $\frac{SS_{within}}{df_{within}}$    |
-| Total                   | $\sum^{}_{k} \sum^{}_{i} (\bar{x}_{ik} -\bar{x} )^{2}$      | n - 1 |                                      |
+| Total                   | $\sum_{n} ({x}_{n} -\bar{x} )^{2}$      | n - 1 |                                      |
 
 
 
@@ -819,7 +821,7 @@ class: font120
 | ------------------------|:-----------------------------------------------------------:|:-----:|:------------------------------------:|:-----------------------------------:|--------------------------------|
 | Between Group (Treatment) | $\sum^{}_{k} n_{k}(\bar{x}_{k} -\bar{x} )^{2}$              | k - 1 | $\frac{SS_{between}}{df_{between}}$  | $\frac{MS_{between}}{MS_{within}}$  | area to right of $F_{k-1,n-k}$ |
 | Within Group (Error)    | $\sum^{}_{k} \sum^{}_{i} (\bar{x}_{ik} -\bar{x}_{k} )^{2}$  | n - k | $\frac{SS_{within}}{df_{within}}$    |                                     |                                |
-| Total                   | $\sum^{}_{k} \sum^{}_{i} (\bar{x}_{ik} -\bar{x} )^{2}$      | n - 1 |                                      |                                     |                                |
+| Total                   | $\sum_{n} ({x}_{n} -\bar{x} )^{2}$      | n - 1 |                                      |                                     |                                |
 
 
 ```{r}
