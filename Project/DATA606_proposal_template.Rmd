@@ -42,15 +42,11 @@ author:
 
 
 
-### Dependent Variable
+### Describe your variables?
 
-**What is the response variable? Is it quantitative or qualitative?**
+**Are they quantitative or qualitative**
 
-
-
-### Independent Variable(s)
-
-
+**If you are are running a regression or similar model, which one is your dependent variable?**
 
 
 ### Relevant summary statistics 
