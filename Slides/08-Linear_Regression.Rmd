@@ -2,7 +2,7 @@
 title: "Linear Regression"
 subtitle: "DATA 606 - Statistics & Probability for Data Analytics"
 author: Jason Bryer, Ph.D. and Angela Lui, Ph.D.
-date: "March 29, 2023"
+date: "October 25, 2023"
 output:
   xaringan::moon_reader:
     css: ["assets/mtheme_max.css", "assets/fonts_mtheme_max.css"]
@@ -27,7 +27,7 @@ editor_options:
 # Cartoons from https://github.com/allisonhorst/stats-illustrations
 # dplyr based upon https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
-source('config.R')
+source('../config.R')
 options(width = 120)
 ```
 
@@ -41,17 +41,10 @@ class: center, middle, inverse, title-slide
 ---
 # Announcements
 
-**Project Presentations**
+**Project Presentations**  
+You can sign up for a presentation slot on this [Google Sheet](https://docs.google.com/spreadsheets/d/1_IGiwrUqd9OC2as4rqisapOgq_N-sXzY2oexyY5Pt5s/edit#gid=0). Please do so ASAP.
 
-You can sign up for a presentation slot on this [Google Sheet](https://docs.google.com/spreadsheets/d/1xcWRZuM4OO0ePR7rqO43tuXVGLQnc0asK1tODdE-qfo/edit?usp=sharing)
-
-**Lab 5** There are two parts to lab 5 (a and b). Please submit both. If you only submitted one and received half credit you can submit the other part for full
-
-**No meetups on April 5th and 12th** - Enjoy Spring Break!
-
-**Possible talk (in person) on April 25th**. Please provide feedback here: https://forms.gle/AnWBoSBFCMcHoXyy8
-
-**NY R Conference is July 13-14**. See here for more info: https://rstats.ai/nyr.html
+**New York Open Statistical Programming Meetup: Visual Introduction to Propensity Score Analysis**. November 14, 6:00pm at NYU. Go here for more info and to register: https://www.meetup.com/nyhackr/events/296951868
 
 ---
 # One Minute Paper Results
@@ -483,9 +476,9 @@ head(cbind(sat.lm.residuals,
 ---
 # Residuals - Implications for Grouping Variables
 
-First, let's look at the scatter plot but with a gender indicator.
+First, let's look at the scatter plot but with a sex indicator.
 
-```{r scattergender, tidy=FALSE, echo=FALSE}
+```{r scattersex, tidy=FALSE, echo=FALSE}
 ggplot(sat, aes(x=Verbal, y=Math, color=Sex, shape=Sex)) + 
 	geom_point(size=2.5) + 
 	scale_color_manual(limits=c('M','F'), values=c('blue','maroon')) +
@@ -493,11 +486,11 @@ ggplot(sat, aes(x=Verbal, y=Math, color=Sex, shape=Sex)) +
 ```
 
 ---
-# Residual Plot by Gender 
+# Residual Plot by Sex 
 
-And also the residual plot with an indicator for gender.
+And also the residual plot with an indicator for sex.
 
-```{r residualgender, tidy=FALSE, echo=FALSE}
+```{r residualsex, tidy=FALSE, echo=FALSE}
 ggplot(sat) + 
 	geom_point(aes(x=Verbal, y=residual, color=Sex, shape=Sex), size=2.5) + 
 	scale_color_manual(limits=c('M','F'), values=c('blue','maroon')) +
@@ -509,18 +502,18 @@ ggplot(sat) +
 ---
 # Histograms
 
-The histograms also show that the distribution are different across gender.
+The histograms also show that the distribution are different across sex.
 
-```{r residualhistogramgender, tidy=FALSE, echo=FALSE}
+```{r residualhistogramsex, tidy=FALSE, echo=FALSE}
 ggplot(sat, aes(x=residual)) + geom_histogram(binwidth=25, alpha=.5) + facet_wrap(~ Sex, ncol=1)
 ```
 
 ---
 # Grouping Variable
 
-Upon careful examination of these two figures, there is some indication there may be a difference between genders. In the scatter plot, it appears that there is a cluster of males towoards the top left and a cluster of females towards the right. The residual plot also shows a cluster of males on the upper left of the cluster as well as a cluster of females to the lower right. Perhaps estimating two separate models would be more appropriate.
+Upon careful examination of these two figures, there is some indication there may be a difference between sexes. In the scatter plot, it appears that there is a cluster of males towoards the top left and a cluster of females towards the right. The residual plot also shows a cluster of males on the upper left of the cluster as well as a cluster of females to the lower right. Perhaps estimating two separate models would be more appropriate.
 
-To start, we create two data frames for each gender.
+To start, we create two data frames for each sex.
 
 ```{r}
 sat.male <- sat[sat$Sex == 'M',]
@@ -544,7 +537,7 @@ Calculate the mean for Math and Verbal for both males and females.
 ---
 # Two Regression Models
 
-Estimate two linear models for each gender.
+Estimate two linear models for each sex.
 
 .pull-left[
 
@@ -569,7 +562,7 @@ sat.female.lm
 
 We do in fact find that the intercepts and slopes are both fairly different. The figure below adds the regression lines to the scatter plot.
 
-```{r scattergenderregression, tidy=FALSE, echo=FALSE}
+```{r scattersexregression, tidy=FALSE, echo=FALSE}
 ggplot(sat, aes(x=Verbal, y=Math, color=Sex)) + 
 	geom_point(size=2.5) +
 	geom_vline(xintercept=male.verbal.mean, color='blue') +
@@ -608,7 +601,7 @@ cor(sat.female$Verbal, sat.female$Math) ^ 2
 
 --
 
-The $R^2$ for the full model accounts for approximately 46.9% of the variance. By estimating separate models for each gender we can account for 47.1% and 51.4% of the variance for males and females, respectively.
+The $R^2$ for the full model accounts for approximately 46.9% of the variance. By estimating separate models for each sex we can account for 47.1% and 51.4% of the variance for males and females, respectively.
 
 ---
 # Examining Possible Outliers
