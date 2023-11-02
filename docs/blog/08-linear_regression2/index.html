@@ -3,10 +3,10 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Tags - DATA 606 - Statistics &amp; Probability - Fall 2023</title>
+<title>Linear Regression Part 2 - DATA 606 - Statistics &amp; Probability - Fall 2023</title>
 <meta name="generator" content="Hugo 0.60.0" />
 <link href="//index.xml" rel="alternate" type="application/rss+xml">
-<link rel="canonical" href="/tags/">
+<link rel="canonical" href="/blog/08-linear_regression2/">
 <link rel="stylesheet" href="/css/theme.min.css">
 <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="/css/chroma.min.css">
@@ -16,19 +16,46 @@
 <script src="/js/bundle.js"></script><style>
 :root {--custom-background-color: #005DAC;}
 </style>
-<meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/tags/" />
+<meta property="og:title" content="Linear Regression Part 2" />
+<meta property="og:description" content="
+
+
+Click here to open the slides (PDF).
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/08-linear_regression2/" />
 <meta property="og:image" content="/images/og-image.png"/>
-<meta property="og:updated_time" content="2023-11-01T00:00:00+00:00" /><meta property="og:site_name" content="DATA 606" />
+<meta property="article:published_time" content="2023-11-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-01T00:00:00+00:00" /><meta property="og:site_name" content="DATA 606" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/images/og-image.png"/>
 
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content=""/>
-<meta itemprop="name" content="Tags">
-<meta itemprop="description" content=""><link href='/fullcalendar-lib/main.css' rel='stylesheet' />
+<meta name="twitter:title" content="Linear Regression Part 2"/>
+<meta name="twitter:description" content="
+
+
+Click here to open the slides (PDF).
+
+
+"/>
+<meta itemprop="name" content="Linear Regression Part 2">
+<meta itemprop="description" content="
+
+
+Click here to open the slides (PDF).
+
+
+">
+<meta itemprop="datePublished" content="2023-11-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2023-11-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="179">
+<meta itemprop="image" content="/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="Annoucement," /><link href='/fullcalendar-lib/main.css' rel='stylesheet' />
 <script src='/fullcalendar-lib/main.js'></script>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -61,12 +88,35 @@
 </nav>
 </div>
 <div class="content-container">
-<main><h1>Tags</h1><div class="edit-meta">
-Last updated on Wed Nov 1, 2023
-
-
-<br></div><nav class="pagination">
-</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+<main><h1>Linear Regression Part 2</h1><p><a href="/slides/08-Linear_Regression2.html#1">Click here</a> to open the slides (<a href="/slides/08-Linear_Regression2.pdf">PDF</a>).</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d-z1Vrec4E0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>library(ggplot2)
+library(tibble)
+N &lt;- 10000
+x &lt;- rnbinom(N, 10, .5)</p>
+<p>df &lt;- tibble(x = x,
+logx = log(x + 1),
+x2 = max(x) - x,
+logx2 = log(x2 + 1),
+sqauredx = x2^2)</p>
+<p>ggplot(df, aes(x = x)) +
+# geom_density(color = ‘blue’) +
+# geom_density(color = ‘red’, aes(x = logx)) +
+# geom_density(color = ‘green’, aes(x = x2)) +
+geom_density(color = ‘maroon’, aes(x = sqauredx))</p>
+<p>data(mtcars)</p>
+<p>lm(mpg ~ wt, data = mtcars)</p>
+<p>ggplot(mtcars, aes(x = wt, y = mpg)) +
+geom_point() +
+geom_smooth(method = ‘lm’, formula = y ~ x, se = FALSE, color = ‘maroon’) +
+geom_smooth(method = ‘loess’, formula = y ~ x, se = FALSE, color = ‘blue’, linetype = 3, span = 0.2) +
+geom_smooth(method = ‘loess’, formula = y ~ x, se = FALSE, color = ‘blue’, linetype = 2, span = 0.75)</p>
+<p>df &lt;- data.frame(x = c(‘Yes’, ‘No’),
+y = c(100, 95))</p>
+<p>ggplot(df, aes(x = x, y = y)) + geom_bar(stat = ‘identity’)
+ggplot(df, aes(x = x, y = y)) + geom_bar(stat = ‘identity’) + coord_cartesian(ylim=c(90,100))</p>
+<footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main>
 <div class="sidebar">

@@ -2,7 +2,7 @@
 title: "Linear Regression Part 2"
 subtitle: "DATA 606 - Statistics & Probability for Data Analytics"
 author: Jason Bryer, Ph.D. and Angela Lui, Ph.D.
-date: "April 19, 2023"
+date: "November 1, 2023"
 output:
   xaringan::moon_reader:
     css: ["assets/mtheme_max.css", "assets/fonts_mtheme_max.css"]
@@ -27,7 +27,7 @@ editor_options:
 # Cartoons from https://github.com/allisonhorst/stats-illustrations
 # dplyr based upon https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
-source('config.R')
+source('../config.R')
 ```
 
 class: center, middle, inverse, title-slide
@@ -37,16 +37,6 @@ class: center, middle, inverse, title-slide
 ### `r metadata$author`
 ### `r metadata$date`
 
----
-# Announcements
-
-**Project Presentations**
-
-Please take a look at the sign-up sheet even if you already signed up. We had to move the two Thursday evening time slots to Monday evening.
-
-You can sign up for a presentation slot on this Google Sheet: https://docs.google.com/spreadsheets/d/1xcWRZuM4OO0ePR7rqO43tuXVGLQnc0asK1tODdE-qfo/edit?usp=sharing
-
-Example project slides located here: https://github.com/jbryer/DATA606Spring2023/tree/main/Project
 
 ---
 # One Minute Paper Results

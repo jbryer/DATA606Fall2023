@@ -1,0 +1,43 @@
+---
+title: "Linear Regression Part 2"
+author: "Jason Bryer and Angela Lui"
+date: 2023-11-01
+draft: false
+categories: ["Meetups"]
+tags: ["Annoucement"]
+---
+
+
+
+<p><a href="/slides/08-Linear_Regression2.html#1">Click here</a> to open the slides (<a href="/slides/08-Linear_Regression2.pdf">PDF</a>).</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d-z1Vrec4E0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<!--more-->
+<p><a href="/slides/08-Linear_Regression2.html#1">Click here</a> to open the slides (<a href="/slides/08-Linear_Regression2.pdf">PDF</a>).</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d-z1Vrec4E0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>library(ggplot2)
+library(tibble)
+N &lt;- 10000
+x &lt;- rnbinom(N, 10, .5)</p>
+<p>df &lt;- tibble(x = x,
+logx = log(x + 1),
+x2 = max(x) - x,
+logx2 = log(x2 + 1),
+sqauredx = x2^2)</p>
+<p>ggplot(df, aes(x = x)) +
+# geom_density(color = ‘blue’) +
+# geom_density(color = ‘red’, aes(x = logx)) +
+# geom_density(color = ‘green’, aes(x = x2)) +
+geom_density(color = ‘maroon’, aes(x = sqauredx))</p>
+<p>data(mtcars)</p>
+<p>lm(mpg ~ wt, data = mtcars)</p>
+<p>ggplot(mtcars, aes(x = wt, y = mpg)) +
+geom_point() +
+geom_smooth(method = ‘lm’, formula = y ~ x, se = FALSE, color = ‘maroon’) +
+geom_smooth(method = ‘loess’, formula = y ~ x, se = FALSE, color = ‘blue’, linetype = 3, span = 0.2) +
+geom_smooth(method = ‘loess’, formula = y ~ x, se = FALSE, color = ‘blue’, linetype = 2, span = 0.75)</p>
+<p>df &lt;- data.frame(x = c(‘Yes’, ‘No’),
+y = c(100, 95))</p>
+<p>ggplot(df, aes(x = x, y = y)) + geom_bar(stat = ‘identity’)
+ggplot(df, aes(x = x, y = y)) + geom_bar(stat = ‘identity’) + coord_cartesian(ylim=c(90,100))</p>
