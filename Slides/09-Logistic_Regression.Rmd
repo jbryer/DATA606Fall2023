@@ -2,7 +2,7 @@
 title: "Maximum Likelihood Estimation and Logistic Regression"
 subtitle: "DATA 606 - Statistics & Probability for Data Analytics"
 author: Jason Bryer, Ph.D. and Angela Lui, Ph.D.
-date: "April 26, 2023"
+date: "November 8, 2023"
 output:
   xaringan::moon_reader:
     css: ["assets/mtheme_max.css", "assets/fonts_mtheme_max.css"]
@@ -27,7 +27,7 @@ editor_options:
 # Cartoons from https://github.com/allisonhorst/stats-illustrations
 # dplyr based upon https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
-source('config.R')
+source('../config.R')
 
 library(gganimate)
 library(magick)
@@ -108,7 +108,7 @@ class: font90
 
 * Proper use of descriptive and/or inferential statistics.
 
-Full rubric available here: https://spring2023.data606.net/assignments/project/
+Full rubric available here: https://fall2023.data606.net/assignments/project/
 
 
 ---
@@ -191,7 +191,7 @@ ggplot(ols, aes(x = r, y = ss)) + geom_path() + geom_point() +
 ---
 # Ordinary Least Squares
 
-The correlation with the correlation the resulted in the smallest RSS is `r ols %>% dplyr::filter(ss == min(ss)) %>% select(r) %>% unname()`.
+The correlation that resulted in the smallest RSS is `r ols %>% dplyr::filter(ss == min(ss)) %>% select(r) %>% unname()`.
 
 ```{r }
 ols %>% dplyr::filter(ss == min(ss)) # Select the row with the smallest RSS
