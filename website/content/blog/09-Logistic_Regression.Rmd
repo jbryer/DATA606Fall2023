@@ -1,5 +1,5 @@
 ---
-title: "Logistic Regression"
+title: "Maximum Likelihood Estimation and Logistic Regression"
 author: "Jason Bryer and Angela Lui"
 date: 2023-11-08
 draft: false
