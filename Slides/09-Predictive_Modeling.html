@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Predictive Modeling</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jason Bryer, Ph.D. and Angela Lui, Ph.D." />
+    <meta name="date" content="2023-11-15" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/mtheme_max.css" type="text/css" />
+    <link rel="stylesheet" href="assets/fonts_mtheme_max.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: center, middle, inverse, title-slide
+
+# Predictive Modeling
+## DATA 606 - Statistics &amp; Probability for Data Analytics
+### Jason Bryer, Ph.D. and Angela Lui, Ph.D.
+### November 15, 2023
+
+---
+
+# One Minute Paper Results
+
+
+
+.pull-left[
+**What was the most important thing you learned during this class?**
+&lt;img src="09-Predictive_Modeling_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+**What important question remains unanswered for you?**
+&lt;img src="09-Predictive_Modeling_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+class: inverse, middle, center
+# Predictive Modeling
+
+---
+# Example: Hours Studying Predicting Passing
+
+
+```r
+study &lt;- data.frame(
+	Hours=c(0.50,0.75,1.00,1.25,1.50,1.75,1.75,2.00,2.25,2.50,2.75,3.00,
+			3.25,3.50,4.00,4.25,4.50,4.75,5.00,5.50),
+	Pass=c(0,0,0,0,0,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1)
+)
+study[sample(nrow(study), 5),]
+```
+
+```
+##    Hours Pass
+## 8   2.00    0
+## 6   1.75    0
+## 10  2.50    0
+## 18  4.75    1
+## 14  3.50    0
+```
+
+```r
+tab &lt;- describeBy(study$Hours, group = study$Pass, mat = TRUE, skew = FALSE)
+tab$group1 &lt;- as.integer(as.character(tab$group1))
+```
+
+
+---
+# Prediction
+
+Odds (or probability) of passing if studied **zero** hours?
+
+`$$log(\frac{p}{1-p}) = -4.078 + 1.505 \times 0$$`
+`$$\frac{p}{1-p} = exp(-4.078) = 0.0169$$`
+`$$p = \frac{0.0169}{1.169} = .016$$`
+
+--
+
+Odds (or probability) of passing if studied **4** hours?
+
+`$$log(\frac{p}{1-p}) = -4.078 + 1.505 \times 4$$`
+`$$\frac{p}{1-p} = exp(1.942) = 6.97$$`
+`$$p = \frac{6.97}{7.97} = 0.875$$`
+
+---
+# Fitted Values
+
+
+```r
+study[1,]
+```
+
+```
+##   Hours Pass
+## 1   0.5    0
+```
+
+```r
+logistic &lt;- function(x, b0, b1) {
+	return(1 / (1 + exp(-1 * (b0 + b1 * x)) ))
+}
+logistic(.5, b0=-4.078, b1=1.505)
+```
+
+```
+## [1] 0.03470667
+```
+
+---
+# Model Performance
+
+The use of statistical models to predict outcomes, typically on new data, is called predictive modeling. Logistic regression is a common statistical procedure used for prediction. We will utilize a **confusion matrix** to evaluate accuracy of the predictions.
+
+&lt;img src="images/Confusion_Matrix.png" width="1100" style="display: block; margin: auto;" /&gt;
+
+---
+class: font80
+# Predicting Heart Attacks
+
+Source: https://www.kaggle.com/datasets/imnikhilanand/heart-attack-prediction?select=data.csv
+
+
+```r
+heart &lt;- read.csv('../course_data/heart_attack_predictions.csv')
+heart &lt;- heart |&gt;
+	mutate_if(is.character, as.numeric) |&gt;
+	select(!c(slope, ca, thal))
+str(heart)
+```
+
+```
+## 'data.frame':	294 obs. of  11 variables:
+##  $ age     : int  28 29 29 30 31 32 32 32 33 34 ...
+##  $ sex     : int  1 1 1 0 0 0 1 1 1 0 ...
+##  $ cp      : int  2 2 2 1 2 2 2 2 3 2 ...
+##  $ trestbps: num  130 120 140 170 100 105 110 125 120 130 ...
+##  $ chol    : num  132 243 NA 237 219 198 225 254 298 161 ...
+##  $ fbs     : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ restecg : num  2 0 0 1 1 0 0 0 0 0 ...
+##  $ thalach : num  185 160 170 170 150 165 184 155 185 190 ...
+##  $ exang   : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ oldpeak : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ num     : int  0 0 0 0 0 0 0 0 0 0 ...
+```
+
+Note: `num` is the diagnosis of heart disease (angiographic disease status) (i.e. Value 0: &lt; 50% diameter narrowing -- Value 1: &gt; 50% diameter narrowing)
+
+
+---
+# Missing Data
+
+We will save this for another day...
+
+
+```r
+complete.cases(heart) |&gt; table()
+```
+
+```
+## 
+## FALSE  TRUE 
+##    33   261
+```
+
+```r
+mice_out &lt;- mice::mice(heart, m = 1)
+```
+
+```
+## 
+##  iter imp variable
+##   1   1  trestbps  chol  fbs  restecg  thalach  exang
+##   2   1  trestbps  chol  fbs  restecg  thalach  exang
+##   3   1  trestbps  chol  fbs  restecg  thalach  exang
+##   4   1  trestbps  chol  fbs  restecg  thalach  exang
+##   5   1  trestbps  chol  fbs  restecg  thalach  exang
+```
+
+```r
+heart &lt;- mice::complete(mice_out)
+```
+
+
+---
+# Data Setup
+
+We will split the data into a training set (70% of observations) and validation set (30%).
+
+
+```r
+train.rows &lt;- sample(nrow(heart), nrow(heart) * .7)
+heart_train &lt;- heart[train.rows,]
+heart_test &lt;- heart[-train.rows,]
+```
+
+This is the proportions of survivors and defines what our "guessing" rate is. That is, if we guessed no one had a heart attack, we would be correct 62% of the time.
+
+
+```r
+(heart_attack &lt;- table(heart_train$num) %&gt;% prop.table)
+```
+
+```
+## 
+##        0        1 
+## 0.604878 0.395122
+```
+
+---
+class: font80
+# Model Training
+
+
+```r
+lr.out &lt;- glm(num ~ ., data=heart_train, family=binomial(link = 'logit'))
+summary(lr.out)
+```
+
+```
+## 
+## Call:
+## glm(formula = num ~ ., family = binomial(link = "logit"), data = heart_train)
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -3.668309   3.440478  -1.066 0.286324    
+## age         -0.002669   0.031400  -0.085 0.932256    
+## sex          0.710022   0.543585   1.306 0.191490    
+## cp           0.952200   0.259580   3.668 0.000244 ***
+## trestbps    -0.005169   0.013774  -0.375 0.707467    
+## chol         0.006203   0.002930   2.117 0.034291 *  
+## fbs          1.287901   0.832381   1.547 0.121803    
+## restecg     -0.328599   0.529274  -0.621 0.534699    
+## thalach     -0.016133   0.011356  -1.421 0.155412    
+## exang        0.916571   0.535843   1.711 0.087169 .  
+## oldpeak      1.253931   0.294198   4.262 2.02e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 275.10  on 204  degrees of freedom
+## Residual deviance: 148.27  on 194  degrees of freedom
+## AIC: 170.27
+## 
+## Number of Fisher Scoring iterations: 5
+```
+
+---
+# Predicted Values
+
+
+```r
+heart_train$prediction &lt;- predict(lr.out, type = 'response', newdata = heart_train)
+ggplot(heart_train, aes(x = prediction, color = num == 1)) + geom_density()
+```
+
+&lt;img src="09-Predictive_Modeling_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+# Results
+
+
+```r
+heart_train$prediction_class &lt;- heart_train$prediction &gt; 0.5
+tab &lt;- table(heart_train$prediction_class, 
+			 heart_train$num) %&gt;% prop.table() %&gt;% print()
+```
+
+```
+##        
+##                  0          1
+##   FALSE 0.54146341 0.10243902
+##   TRUE  0.06341463 0.29268293
+```
+
+For the training set, the overall accuracy is 83.41%. Recall that 60.49% people did not have a heart attach. Therefore, the simplest model would be to predict that no one had a heart attack, which would mean we would be correct 60.49% of the time. Therefore, our prediction model is 22.93% better than guessing.
+
+---
+# Checking with the validation dataset
+
+
+```r
+(survived_test &lt;- table(heart_test$num) %&gt;% prop.table())
+```
+
+```
+## 
+##         0         1 
+## 0.7191011 0.2808989
+```
+
+```r
+heart_test$prediction &lt;- predict(lr.out, newdata = heart_test, type = 'response')
+heart_test$prediciton_class &lt;- heart_test$prediction &gt; 0.5
+tab_test &lt;- table(heart_test$prediciton_class, heart_test$num) %&gt;%
+	prop.table() %&gt;% print()
+```
+
+```
+##        
+##                  0          1
+##   FALSE 0.65168539 0.06741573
+##   TRUE  0.06741573 0.21348315
+```
+
+The overall accuracy is 86.52%, or 14.6% better than guessing.
+
+---
+# Receiver Operating Characteristic (ROC) Curve
+
+The ROC curve is created by plotting the true positive rate (TPR; AKA sensitivity) against the false positive rate (FPR; AKA probability of false alarm) at various threshold settings.
+
+
+```r
+roc &lt;- calculate_roc(heart_train$prediction, heart_train$num == 1)
+summary(roc)
+```
+
+```
+## AUC = 0.912
+## Cost of false-positive = 1
+## Cost of false-negative = 1
+## Threshold with minimum cost = 0.475
+```
+
+---
+# ROC Curve
+
+
+```r
+plot(roc)
+```
+
+&lt;img src="09-Predictive_Modeling_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+# ROC Curve
+
+
+```r
+plot(roc, curve = 'accuracy')
+```
+
+&lt;img src="09-Predictive_Modeling_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+class: font90
+# Caution on Interpreting Accuracy
+
+- [Loh, Sooo, and Zing](http://cs229.stanford.edu/proj2016/report/LohSooXing-PredictingSexualOrientationBasedOnFacebookStatusUpdates-report.pdf) (2016) predicted sexual orientation based on Facebook Status.
+
+- They reported model accuracies of approximately 90% using SVM, logistic regression and/or random forest methods.
+
+--
+
+- [Gallup](https://news.gallup.com/poll/234863/estimate-lgbt-population-rises.aspx) (2018) poll estimates that 4.5% of the Americal population identifies as LGBT.
+
+--
+
+- *My proposed model:* I predict all Americans are heterosexual.
+
+- The accuracy of my model is 95.5%, or *5.5% better than Facebook's model!*
+
+- Predicting "rare" events (i.e. when the proportion of one of the two outcomes large) is difficult and requires independent (predictor) variables that strongly associated with the dependent (outcome) variable.
+
+---
+# Fitted Values Revisited 
+
+What happens when the ratio of true-to-false increases (i.e. want to predict "rare" events)?
+
+Let's simulate a dataset where the ratio of true-to-false is 10-to-1. We can also define the distribution of the dependent variable. Here, there is moderate separation in the distributions.
+
+
+
+
+```r
+test.df2 &lt;- getSimulatedData(
+	treat.mean=.6, control.mean=.4)
+```
+
+The `multilevelPSA::psrange` function will sample with varying ratios from 1:10 to 1:1. It takes multiple samples and averages the ranges and distributions of the fitted values from logistic regression.
+
+
+```r
+psranges2 &lt;- psrange(test.df2, test.df2$treat, treat ~ .,
+					 samples=seq(100,1000,by=100), nboot=20)
+```
+
+---
+# Fitted Values Revisited (cont.)
+
+
+```r
+plot(psranges2)
+```
+
+&lt;img src="09-Predictive_Modeling_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+# Additional Resources
+
+
+* [The Path to Log Likelihood](https://jbryer.github.io/VisualStats/articles/log_likelihood.html)
+
+* [Visual Introduction to Maximum Likelihood Estimation](https://jbryer.github.io/VisualStats/articles/mle.html)
+
+* [VisualStats R Package](https://jbryer.github.io/VisualStats/index.html)
+
+* [Logistic Regression Details Pt 2: Maximum Likelihood](https://www.youtube.com/watch?v=BfKanl1aSG0)
+
+* [StatQuest: Maximum Likelihood, clearly explained](https://www.youtube.com/watch?v=XepXtl9YKwc)
+
+* [Probability concepts explained: Maximum likelihood estimation](https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1)
+
+
+
+---
+class: left, font140
+# One Minute Paper
+
+Complete the one minute paper: 
+https://forms.gle/ngYXfC6jwY3TV6FXA
+
+1. What was the most important thing you learned during this class?
+2. What important question remains unanswered for you?
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "solarized-light",
+"highlightLanguage": "R",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!-- Source: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/ -->
+<style>
+.logo {
+  background-image: url(images/hex/DATA606.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 2em;
+  right: 0.5em;
+  width: 55px;
+  height: 64px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    // ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

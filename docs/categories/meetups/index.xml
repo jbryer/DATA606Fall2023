@@ -6,10 +6,24 @@
     <description>Recent content in Meetups on DATA 606 - Statistics &amp; Probability - Fall 2023</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Nov 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/meetups/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Visual Introduction to Propensity Score Analysis</title>
+      <link>/blog/2023-11-14/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2023-11-14/</guid>
+      <description>
+
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/JLV4mtFhRMM&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+</description>
+    </item>
     
     <item>
       <title>Maximum Likelihood Estimation and Logistic Regression</title>
