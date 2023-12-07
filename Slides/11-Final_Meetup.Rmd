@@ -2,7 +2,7 @@
 title: "Final Meetup"
 subtitle: "DATA 606 - Statistics & Probability for Data Analytics"
 author: Jason Bryer, Ph.D. and Angela Lui, Ph.D.
-date: "May 17, 2023"
+date: "December 6, 2023"
 output:
   xaringan::moon_reader:
     css: ["assets/mtheme_max.css", "assets/fonts_mtheme_max.css"]
@@ -29,7 +29,7 @@ editor_options:
 # Cartoons from https://github.com/allisonhorst/stats-illustrations
 # dplyr based upon https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
-source('config.R')
+source('../config.R')
 library(fontawesome)
 ```
 
@@ -46,7 +46,7 @@ class: center, middle, inverse, title-slide
 
 * Is now available on Blackboard.
 
-* Due by end of day May 21st.
+* Due by end of day December 10th
 
 * You may use your book and course materials.
 
@@ -67,8 +67,7 @@ Here are some resources for PSA:
 
 * PSA [Github repository](https://github.com/jbryer/psa) includes slides slides and Shiny application: https://github.com/jbryer/psa
 * Early version of an [Intro to PSA](https://psa.bryer.org) book: https://psa.bryer.org
-* Recording of a talk given this semester here: https://spring2023.data606.net/blog/intro_psa/
-* I will be teaching a workshop for [Workshops for Ukraine](https://sites.google.com/view/dariia-mykhailyshyna/main/r-workshops-for-ukraine#h.hep5crn3g4pc) on July 6, 2023.
+* Recording of a talk given this semester for the NYC Meetup group here: https://www.youtube.com/watch?v=JLV4mtFhRMM
 
 
 .pull-left[
